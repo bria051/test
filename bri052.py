@@ -6,25 +6,30 @@ import torch
 from bri053 import NKDataSet
 
 
-csv_path = './file/wake.csv'
+csv_path = './file/data_load.csv'
 
 custom_dataset = NKDataSet(csv_path)
 
 my_dataset_loader = torch.utils.data.DataLoader(dataset= custom_dataset,
-                                                batch_size=2,
+                                                batch_size=5,
                                                 shuffle=False,
                                                 )
 
-model = TrModel(30000,100,2)
+model = TrModel(30000,100,5)
 
 criterion = torch.nn.CrossEntropyLoss(reduction = 'sum')
 optimizer = torch.optim.SGD(model.parameters(), lr=1e-4)
 
 for t in range(500):
     for i, data in enumerate(my_dataset_loader, 0):
+
+
+
         images, label = data
 
-        images = images.view(2, 30000)
+
+
+        images = images.view(5, 30000)
         #print(images.size())
         #print("label is label", label)
 

@@ -8,7 +8,7 @@ from torchvision import transforms
 img_sort = ['jpeg','.jpg','.png']
 img_list = []
 
-path = './data'
+path = './jje'
 
 
 for x in range(len(img_sort)):
@@ -31,13 +31,13 @@ for i in range(len(img_arr)):
     img = img.view(-1)
     img_as_tensor.append(img)
 
-num_image = 2
+num_image = 25
 num_class = 2
 
 label = torch.empty(num_image, dtype = torch.long)
 
-label[0] = 0
-label[1] = 1
+
+
 
 
 model = TrModel(30000,100,2)

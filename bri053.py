@@ -18,7 +18,11 @@ class NKDataSet(Dataset):
 
         single_image_name = self.image_arr[index]
 
+        print(single_image_name)
+
         img_as_img = cv2.imread(single_image_name)
+
+      #  print(img_as_img)
 
         img_as_img = cv2.resize(img_as_img,(100,100))
 
@@ -32,16 +36,4 @@ class NKDataSet(Dataset):
     def __len__(self):
 
         return  self.data_len
-
-csv_path = './file/wake.csv'
-
-custom_dataset = NKDataSet(csv_path)
-
-my_dataset_loader = torch.utils.data.DataLoader(dataset= custom_dataset,
-                                                batch_size=1,
-                                                shuffle=False)
-
-for x, (images,labels) in enumerate(my_dataset_loader):
-    print(images,labels)
-
 
