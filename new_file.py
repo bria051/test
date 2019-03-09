@@ -47,9 +47,6 @@ def train(my_dataset_loader,model,criterion,optimizer,epoch,writer):
 
         images, label = data
 
-        images = torch.autograd.Variable(images)
-        label = torch.autograd.Variable(label)
-
         y_pred = model(images)
 
         loss = criterion(y_pred,label)
@@ -95,7 +92,7 @@ def test(my_dataset_loader, model, criterion, epoch, test_writer):
           .format(epoch = epoch,top1= top1))
 
     test_writer.add_scalar('Test/loss', losses.avg, epoch)
-    test_writer.add_scalar('Test/accuaracy', top1.avg, epoch)
+    test_writer.add_scalar('test/accuaracy', top1.avg, epoch)
 
 csv_path = './file/data_load.csv'
 
@@ -103,7 +100,7 @@ custom_dataset = NKDataSet(csv_path)
 
 my_dataset_loader = torch.utils.data.DataLoader(dataset=custom_dataset,
                                                 batch_size=5,
-                                                shuffle=True,
+                                                shuffle=False,
                                                 num_workers=1)
 
 D_in = 30000
@@ -114,12 +111,28 @@ D_out = 2
 model = Cnn_Model()
 
 criterion = torch.nn.CrossEntropyLoss(reduction='sum')
-optimizer = torch.optim.SGD(model.parameters(),lr=1e-2)
+optimizer = torch.optim.SGD(model.parameters(),lr=1e-4)
 
-writer = SummaryWriter('./log')
+writer = SummaryWriter('./log/test')
 test_writer = SummaryWriter('.log/test')
 for epoch in range(500):
     train(my_dataset_loader,model,criterion,optimizer,epoch,writer)
     test(my_dataset_loader,model,criterion,epoch,test_writer)
 
+class AverageMeter(object):
+
+    def __init__(self):
+        self.reset()
+
+    def reset(self):
+        self.val = 0
+        self.avg = 0
+        self.sum = 0
+        self.count = 0
+
+    def update(self,val,n=1):
+        self.val = val
+        self.sum += val * n
+        self.count += n
+        self.avg = self.sum / self.count
 

@@ -1,16 +1,34 @@
 import torch
 
-class TrModel(torch.nn.Module):
+batch_size = 5
+class Cnn_Model(torch.nn.Module):
 
-    def __init__(self,D_in, H, D_out):
+    def __init__(self):
 
-        super(TrModel,self).__init__()
-        self.linear1 = torch.nn.Linear(D_in,H)
-        self.linear2 = torch.nn.Linear(H,D_out)
+        super(Cnn_Model, self).__init__()
+        self.conv1 = torch.nn.Conv2d(3,20,kernel_size = 3)
+        self.relu = torch.nn.ReLU()
+        self.conv2 = torch.nn.Conv2d(20,2,kernel_size = 3)
+        self.conv3 = torch.nn.Linear(18432,6)
 
     def forward(self, x):
 
-        h_relu = self.linear1(x).clamp(min=0)
-        y_pred = self.linear2(h_relu)
+#        print('kkkk',x.size())
 
-        return y_pred
+        x = self.conv1(x)
+ #       print("conv1",x.size())
+
+        x = self.relu(x)
+        x = self.conv2(x)
+  #      print("conv2",x.size())
+
+        x = self.relu(x)
+        x = x.view(batch_size,-1)
+        x = self.conv3(x)
+   #     print("conv3",x)
+
+    #    print("last x size",x.size())
+
+        x = x.view(batch_size,6)
+
+        return x

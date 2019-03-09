@@ -18,7 +18,7 @@ class NKDataSet(Dataset):
 
         single_image_name = self.image_arr[index]
 
-        print(single_image_name)
+      #  print(single_image_name)
 
         img_as_img = cv2.imread(single_image_name)
 

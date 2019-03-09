@@ -1,3 +1,4 @@
+
 import torch
 
 class TrModel(torch.nn.Module):
@@ -14,3 +15,29 @@ class TrModel(torch.nn.Module):
         y_pred = self.linear2(h_relu)
 
         return y_pred
+
+"""
+
+bias = 2
+
+a = 3
+b = 5
+c = 2
+
+blueline = 0.1
+blueline2 = 0.2
+blueline3 = 0.3
+
+redline = 0.4
+redline1 = 0.5
+redline2 = 0.6
+
+def cal_temp(a,b,c):
+
+    d = a,b,c*blueline,blueline2,blueline3+bias
+    e = a,b,c*redline,redline1,redline2+bias
+
+    return d,e
+
+temp = cal_temp(a,b,c)
+"""
