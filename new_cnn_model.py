@@ -13,14 +13,14 @@ class Cnn_Model(torch.nn.Module):
 
     def forward(self, x):
 
-        #print('kkkk',x.size())
+      #  print('kkkk',x.size())
 
         x = self.conv1(x)
-        #print("conv1",x.size())
+      #  print("conv1",x.size())
 
         x = self.relu(x)
         x = self.conv2(x)
-        #print("conv2",x.size())
+       # print("conv2",x.size())
 
         x = self.relu(x)
         x = x.view(batch_size,-1)
@@ -28,10 +28,10 @@ class Cnn_Model(torch.nn.Module):
 
         #print('x', x.size())
         x = self.conv3(x)
-        #print("conv3",x)
+      #  print("conv3",x)
 
-        #print("last x size",x.size())
+       # print("last x size",x.size())
+
+        x = x.view(batch_size,6)
 
         return x
-
-
