@@ -94,6 +94,7 @@ def test(my_dataset_loader, model, criterion, epoch, test_writer):
     test_writer.add_scalar('Test/loss', losses.avg, epoch)
     test_writer.add_scalar('test/accuaracy', top1.avg, epoch)
 
+
 csv_path = './file/data_load.csv'
 
 custom_dataset = NKDataSet(csv_path)

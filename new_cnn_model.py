@@ -32,6 +32,5 @@ class Cnn_Model(torch.nn.Module):
 
        # print("last x size",x.size())
 
-        x = x.view(batch_size,6)
 
         return x
