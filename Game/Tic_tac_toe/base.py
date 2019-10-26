@@ -138,7 +138,7 @@ while(True):
         break
     else:
         if(turn == 'user'):
-            for event in pygame.event.get():
+            For event in pygame.event.get():
                 if event.type == MOUSEBUTTONUP:
                     print(event.pos)
                     a,b = event.pos

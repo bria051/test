@@ -1,6 +1,6 @@
 from torch.utils.data.dataset import Dataset
 import torch
-from Deeplearning.Cnn_project.Paint.new_cnn_model import Cnn_Model
+from Deeplearning.Cnn_project.Paint.Cnn_model_v2 import Cnn_Model
 from tensorboardX import SummaryWriter
 import argparse
 import time
