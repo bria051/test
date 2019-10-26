@@ -1,7 +1,7 @@
 from torch.utils.data.dataset import Dataset
 import torch
-from bri051 import Cnn_Model
-from bri053 import NKDataSet
+from Deeplearning.Cnn_project.Paint.Cnn_Model import Cnn_Model
+from Deeplearning.Cnn_project.Paint.bri053 import NKDataSet
 from tensorboardX import SummaryWriter
 import argparse
 import time
@@ -125,7 +125,7 @@ def test(my_dataset_loader, model, criterion, epoch, test_writer):
     test_writer.add_scalar('Test/loss', losses.avg, epoch)
     test_writer.add_scalar('Test/accuaracy', top1.avg, epoch)
 
-csv_path = './file/data_load.csv'
+csv_path = './data_load/data_load.csv'
 
 custom_dataset = NKDataSet(csv_path)
 
@@ -140,10 +140,6 @@ H = 100
 D_out = 2
 
 model = Cnn_Model()
-
-checkpoint = torch.load('save_dir/checkpoint_2.tar')
-model.load_state_dict(checkpoint['state_dict'])
-
 
 criterion = torch.nn.CrossEntropyLoss(reduction='sum')
 optimizer = torch.optim.SGD(model.parameters(),lr=1e-2)

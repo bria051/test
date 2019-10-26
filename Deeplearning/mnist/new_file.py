@@ -1,7 +1,7 @@
 from torch.utils.data.dataset import Dataset
 import torch
-from bri051 import Cnn_Model
-from bri053 import NKDataSet
+from Deeplearning.Cnn_project.Paint.Cnn_Model import Cnn_Model
+from Deeplearning.Cnn_project.Paint.bri053 import NKDataSet
 from tensorboardX import SummaryWriter
 
 
@@ -95,7 +95,7 @@ def test(my_dataset_loader, model, criterion, epoch, test_writer):
     test_writer.add_scalar('test/accuaracy', top1.avg, epoch)
 
 
-csv_path = './file/data_load.csv'
+csv_path = './data_load/data_load.csv'
 
 custom_dataset = NKDataSet(csv_path)
 

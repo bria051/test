@@ -1,5 +1,5 @@
 from math import inf as infinity
-from winnig import w_win
+from Game.Tic_tac_toe.winnig import w_win
 
 def check_game(mark,board,win):
     for x in range(8):

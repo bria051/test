@@ -1,7 +1,7 @@
 from torch.utils.data.dataset import Dataset
 import torch
-from test_3 import Cnn_Model
-from test_2 import NKDataSet
+from Deeplearning.Cnn_project.Paint.test_3 import Cnn_Model
+from Deeplearning.Cnn_project.Paint.test_2 import NKDataSet
 
 
 #cnn_model,my_dataset

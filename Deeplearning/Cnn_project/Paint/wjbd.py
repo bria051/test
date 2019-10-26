@@ -1,5 +1,5 @@
-import os, os.path
-from temp_model import TrModel
+import os.path
+from Deeplearning.Cnn_project.Paint.temp_model import TrModel
 import numpy as np
 import cv2
 import torch
@@ -8,7 +8,7 @@ from torchvision import transforms
 img_sort = ['jpeg','.jpg','.png']
 img_list = []
 
-path = './jje'
+path = './hand_font'
 
 
 for x in range(len(img_sort)):

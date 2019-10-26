@@ -1,5 +1,5 @@
 def choosing():
-    print("Choose O or X to play the game:")
+    print("Choose O or X to play the Game:")
     while (True):
         user = input()
 

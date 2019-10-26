@@ -1,12 +1,9 @@
-import os, os.path
-from temp_model import TrModel
-import numpy as np
-import cv2
+from Deeplearning.Cnn_project.Paint.temp_model import TrModel
 import torch
-from bri053 import NKDataSet
+from Deeplearning.Cnn_project.Paint.bri053 import NKDataSet
 
 
-csv_path = './file/data_load.csv'
+csv_path = './data_load/data_load.csv'
 
 custom_dataset = NKDataSet(csv_path)
 

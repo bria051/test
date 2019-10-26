@@ -1,5 +1,5 @@
 import pygame
-from map import get_pos_from_number
+from Game.Tic_tac_toe.map import get_pos_from_number
 
 grid_size = 90
 
@@ -10,13 +10,13 @@ BLACK = (0, 0, 0)
 
 class Draw(object):
     def __init__(self, surface):
-        white_img = pygame.image.load('./image/white.png')
-        black_img = pygame.image.load('./image/black.png')
-        board_img = pygame.image.load('./image/t_by_t.png')
+        white_img = pygame.image.load('./omok_image/white.png')
+        black_img = pygame.image.load('./omok_image/black.png')
+        board_img = pygame.image.load('./omok_image/t_by_t.png')
         self.white_img = pygame.transform.scale(white_img, (grid_size, grid_size))
         self.black_img = pygame.transform.scale(black_img, (grid_size, grid_size))
-        self.last_w_img = pygame.image.load('./image/white_a.png')
-        self.last_b_img = pygame.image.load('./image/black_a.png')
+        self.last_w_img = pygame.image.load('./omok_image/white_a.png')
+        self.last_b_img = pygame.image.load('./omok_image/black_a.png')
         self.board_img = pygame.transform.scale(board_img, (300, 300))
         self.surface = surface
         self.font = pygame.font.Font("freesansbold.ttf", 100)

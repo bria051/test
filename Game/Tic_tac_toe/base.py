@@ -1,17 +1,12 @@
-import random
-from choose import choosing
-from first_attack import first_attack
-from board import game_board
-from player import user_time
-from computer import empty_cells
-from computer import minmax
-from winnig import w_win
-from draw_game import Draw
-import pygame
+from Game.Tic_tac_toe.choose import choosing
+from Game.Tic_tac_toe.board import game_board
+from Game.Tic_tac_toe.player import user_time
+from Game.Tic_tac_toe.computer import empty_cells
+from Game.Tic_tac_toe.winnig import w_win
+from Game.Tic_tac_toe.draw_game import Draw
 from pygame import *
-import time
-from map import get_pos_from_number, get_number_from_pos, play_mode
-from first_attack import ran
+from Game.Tic_tac_toe.map import get_number_from_pos, play_mode
+from Game.Tic_tac_toe.first_attack import ran
 
 
 window_width = 800
@@ -37,7 +32,7 @@ print("%s's turn"%(turn))
 
 pygame.init()
 surface = pygame.display.set_mode((window_width, window_height))
-pygame.display.set_caption("Omok game")
+pygame.display.set_caption("Omok Game")
 surface.fill(bg_color)
 draw_game = Draw(surface)
 draw_game.init_game()
