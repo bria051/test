@@ -81,3 +81,54 @@ def height(board):
             height_change(board, blank[0], x)
             return board
 
+blank = ["*", "O", "X", "X", "X", "O"]
+
+def search(blank):
+    key = 0
+    num = 0
+    zero = 0
+    list = []
+    judgment = True
+
+    while judgment:
+
+        if key == 0:
+            if zero == len(blank):
+                break
+            else:
+                for x in range(zero + 1, len(blank)):
+                    if blank[x] != "*":
+                        num = x
+                        key = 1
+                        list.append(num)
+                        break
+
+        if key == 1:
+            if len(list) <= 1:
+                if num <= len(blank) - 1 and blank[num] != "*":
+                    num += 1
+                else:
+                    list.append(num - 1)
+                    key = 2
+
+        if key == 2:
+            if list[1] + 1 - list[0] >= 3 and blank[list[0]] == blank[list[1]]:
+                for x in range(list[0], list[1] + 1):
+                    if (blank[list[0]] == "O"):
+                        if (blank[x] == "X"):
+                            print("gfg")
+                            judgment = False
+                            break
+
+                    if (blank[list[0]] == "X"):
+                        if (blank[x] == "O"):
+                            print("gg")
+                            judgment = False
+                            break
+
+            else:
+                key = 0
+                zero = list[1]
+                list = []
+                num = 0
+search(blank)
