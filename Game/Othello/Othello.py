@@ -12,16 +12,7 @@ def make_board(a):
     board[num+1][num+1] = "O"
 
     return board
-def print_board(list):
-    sentence = ""
-    for x in range(len(list)):
-        for y in range(len(list[x])):
-            sentence += list[x][y]
-            if(y != len(list[x])-1):
-                sentence += " "
-        if(x != len(list)-1):
-            sentence += "\n"
-    print(sentence)
+
 
 def width_change(board, mark, num):
     for x in range(len(board[num])):
@@ -132,3 +123,4 @@ def search(blank):
                 list = []
                 num = 0
 search(blank)
+
