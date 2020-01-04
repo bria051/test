@@ -1,6 +1,5 @@
 import random
 
-
 a = int(input())
 class Board:
 
@@ -13,6 +12,7 @@ class Board:
         self.ber = 0
         self.sentence = ""
 
+    # back_side는 공백리스트, board는 num_list이다.
     def make_board(self, a):
         # board는 판, box와 number는 board에 넣을 수를 랜덤으로 고르기 위하 사용하는 리스트이다.
         board = self.board
@@ -39,8 +39,13 @@ class Board:
             if ber == 0:
                 board.append(number[n])
                 box.append(n)
-        # 수가 섞인 board를 내보냄.
-        return board
+
+        back_side = []
+        for x in range(len(board)):
+            back_side.append('*')
+
+        # 수가 섞인 board와 공백리스트를 내보냄.
+        return back_side, board
 
     def print_board(self, a, board):
         # board를 가로 a 세로 a로 출력
@@ -60,5 +65,5 @@ class Board:
         print(sentence)
 
 b = Board()
-board = b.make_board(a)
+board, num_list = b.make_board(a)
 b.print_board(a, board)
