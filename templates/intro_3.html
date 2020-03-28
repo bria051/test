@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>"hello"</title>
+</head>
+<body>
+    <form method="POST" action="/cal">
+    <h1> Flask #3 반가워  </h1>
+    <h2> 반갑다구</h2>
+    <input type="text" name="num">
+    <button type="submit">버튼이얍</button>
+    </form>
+    <div>
+        <p>
+            {% if num == None %}
+                <h5> 아직 아무 숫자도 입력이 안되었습니다. </h5>
+            {% elif num == 0 %}
+                <h6> 짜란 </h6>
+            {% else %}
+                <h7> 다시 보니깐 반가워 </h7>
+            {% endif %}
+        </p>
+    </div>
+    <form method="POST" action="/ll">
+    <button type="submit">버튼</button>
+    </form>
+</body>
+</html>
