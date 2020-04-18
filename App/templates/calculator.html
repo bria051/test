@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1> Calculator </h1>
+    <br>
+        <form action="" method="post">
+            <input type="text" placeholder="0" name="calculate" value="{{
+                    request.form.calculate}}">
+            <input type="text" placeholder="0" name="password" value="{{
+                    request.form.password}}">
+            <input type="button" value="+">
+            <input type="button" value="-">
+            <input type="button" value="×">
+            <input type="button" value="÷">
+        </form>
+
+        {% if value %}
+            <p class="value">{{ value }}</p>
+        {% endif %}
+
+</body>
+</html>

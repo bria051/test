@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>END</title>
+    <title>Multiplication table</title>
 </head>
 <body>
     <h1> Login successful </h1>
+    <br>
+        <form action="" method="post">
+        <h2> select the number between 1~9</h2>
+            <input type="text" placeholder="type number" name="number" value="{{
+                    request.form.number}}">
+            <input class="btn btn-default" type="submit" value="Press">
+        </form>
+        {% if multiple %}
+            <p class="multiple">{{ multiple }}</p>
+        {% endif %}
 
 </body>
 </html>
