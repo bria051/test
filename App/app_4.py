@@ -57,8 +57,8 @@ def welcome():
     multi = None
     if request.method == 'POST':
         number = int(request.form['number'])
-        multi = multiple(number)
-    return render_template('welcome.html', multiple=multi)
+        multi = int(number)
+    return render_template('welcome.html', num=multi)
 
 
 @app.route('/logout')
