@@ -3,6 +3,14 @@
     <head>
     </head>
     <body>
-        <img src="{{ url_for('static', filename=image) }}">
+        <div>
+        <p>
+            {% if image == None %}
+                <h5> 사진이 존재하지 않습니다. </h5>
+            {% else %}
+                <img src="{{ url_for('static', filename=image) }}">
+            {% endif %}
+        </p>
+    </div>
     </body>
 </html>
