@@ -15,22 +15,26 @@
    <h3>shopping list</h3>
    <h4>add</h4>
    <form action = "{{ url_for('database_add') }}" method = "POST">
-       id<br>
-       <input type = "text" name = "id" /></br>
-       password<br>
-       <input type = "text" name = "password" /><br>
+       name<br>
+       <input type = "text" name = "item" /></br>
+       number<br>
+       <input type = "text" name = "num" /><br>
+       price<br>
+       <input type = "text" name = "price" /><br><br>
        <input type = "submit" name = "add" /><br>
    </form>
    <h4>show list</h4>
    <table border=1 width="600" align="center">
        <thead>
-       <td>id</td>
-       <td>password</td>
+       <td>name</td>
+       <td>number</td>
+       <td>price</td>
        </thead>
    {% for row in rows %}
        <tr>
-           <td>{{ row["id"] }}</td>
-           <td>{{ row["password"] }}</td>
+           <td>{{ row["item"] }}</td>
+           <td>{{ row["num"] }}</td>
+           <td>{{ row["price"] }}</td>
        </tr>
    {% endfor %}
    </table>

@@ -16,19 +16,6 @@ def check(username, password):
 """
 
 
-def id(username, password):
-    id_box = {'apple': '1234', 'banana': '5678', 'orange': '0000'}
-    if id_box.get(username) == password:
-        f = open("./test.txt", 'w')
-        f.write("login")
-        f.close()
-
-        return None
-    elif id_box.get(username) == None:
-        return "Username Unfounded"
-    else:
-        return "Wrong password"
-
 
 def multiple(num):
     sentence = ""
@@ -67,6 +54,18 @@ def logout():
     f.close()
     return redirect(url_for('login'))
 
+def id(username, password):
+    id_box = {'apple': '1234', 'banana': '5678', 'orange': '0000'}
+    if id_box.get(username) == password:
+        f = open("./test.txt", 'w')
+        f.write("login")
+        f.close()
+
+        return None
+    elif id_box.get(username) == None:
+        return "Username Unfounded"
+    else:
+        return "Wrong password"
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
