@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shopping basket</title>
+    <meta name="viewport" content="width=device-width", initial-sacle="1.0">
+
+</head>
+<body>
+    <div class="container">
+        <h2> Add the Goods</h2>
+        <br>
+        <form action="" method="post">
+            <input type="text" placeholder="Goods" name="basket" value="{{
+                    request.form.basket}}">
+            <input class="btn btn-default" type="submit" value="add">
+        </form>
+        {% if error %}
+            <p class="error"><strong>Message: </strong>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

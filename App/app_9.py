@@ -17,3 +17,5 @@ def image_select():
 
 if __name__ == "__main__":
     app.run()
+
+save_id = None

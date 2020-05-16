@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Login intro - login page</title>
+    <meta name="viewport" content="width=device-width", initial-sacle="1.0">
+
+</head>
+<body>
+    <div class="container">
+        <h2> Sign In</h2>
+        <br>
+        <form action="" method="post">
+            <input type="text" placeholder="ID" name="ID" value="{{
+                    request.form.ID}}">
+            <input type="text" placeholder="Password" name="pass" value="{{
+                    request.form.pass}}">
+            <input type="text" placeholder="Name" name="name" value="{{
+                    request.form.name}}">
+            <input type="text" placeholder="Age" name="age" value="{{
+                    request.form.age}}">
+            <input class="btn btn-default" type="submit" value="Sign_in">
+        </form>
+        {% if error %}
+            <p class="error"><strong>Error:</strong>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
