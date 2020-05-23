@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Flask Login intro - login page</title>
-    <meta name="viewport" content="width=device-width", initial-sacle="1.0">
-
+    <meta name="viewport" content="width=device-widht",
+          initial-sacle="1.0">
 </head>
 <body>
     <div class="container">
-        <h1> Please login</h1>
-        <br>
-        <form action="" method="post">
-            <input type="text" placeholder="Username" name="username" value="{{
-                    request.form.username}}">
-            <input type="text" placeholder="Password" name="password" value="{{
-                    request.form.password}}">
-            <input class="btn btn-default" type="submit" value="Login">
+        <h1> Welcome My HomePage</h1>
+        <form action="" method="post", action="/">
+            <input type="text" placeholder="id"
+                   name="id" value="{{
+                     request.form.id}}">
+            <input type="text" placeholder="pwd"
+                   name="pwd" value="{{
+                     request.form.pwd}}">
+            <br>
+            <input class="btn btn-default" type="submit" value="Sign In">
+            <br>
         </form>
-        {% if error %}
-            <p class="error"><strong>Error:</strong>{{ error }}</p>
-        {% endif %}
+        <form action="/sign_up/" method="post">
+       <button name="forwardBtn" type="submit">Sing up</button>
+        </form>
     </div>
+
 </body>
 </html>
