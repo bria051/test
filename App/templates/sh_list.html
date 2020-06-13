@@ -13,17 +13,6 @@
 </head>
 <body>
    <h3>shopping list</h3>
-   <h4>add</h4>
-   <form action = "{{ url_for('database_add') }}" method = "POST">
-       name<br>
-       <input type = "text" name = "item" /></br>
-       number<br>
-       <input type = "text" name = "num" /><br>
-       price<br>
-       <input type = "text" name = "price" /><br><br>
-       <input type = "submit" name = "add" /><br>
-   </form>
-   <h4>show list</h4>
    <table border=1 width="600" align="center">
        <thead>
        <td>name</td>
