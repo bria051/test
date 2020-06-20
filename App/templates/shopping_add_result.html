@@ -14,6 +14,9 @@
 </head>
 <body>
    <h3>shopping list</h3>
+   <form action="/logout" method="post">
+          <button name="forwardBtn" type="submit">Logout</button>
+   </form>
    <h4>add</h4>
    <form action = "{{ url_for('addrec') }}" method = "POST">
        name<br>

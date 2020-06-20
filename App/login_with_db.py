@@ -18,7 +18,7 @@ conn = sqlite3.connect("user.db")
 cur = conn.cursor()
 
 try:
-    cur.execute("CREATE TABLE namgil(ID text, PWD text)")
+    cur.execute("CREATE TABLE namgil(ID text PRIMARY Key, PWD text, MONEY text)")
     conn.commit()
     conn.close()
 except:
@@ -55,6 +55,9 @@ def login():
                 if rows[0][1] == login_pwd:
                     print("Success Login")
                     session['logged_in'] = True
+                    global temp_id
+                    temp_id = login_id
+
                     return redirect(url_for('addrec'))
             except:
                 print("Fail Login")
@@ -76,8 +79,8 @@ def sign_up():
 
         if want_id == "not data":
             return render_template('join.html')
-        execute = "INSERT INTO namgil(ID, PWD)VALUES(?,?)"
-        cur.execute(execute, (want_id, want_pwd))
+        execute = "INSERT INTO namgil(ID, PWD, MONEY)VALUES(?,?,?)"
+        cur.execute(execute, (want_id, want_pwd, 100000))
         print("Success Join")
         try:
             con.commit()
@@ -91,10 +94,13 @@ def sign_up():
 
 
 
-@app.route('/logout')
+@app.route('/logout', methods=['POST'])
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('login'))
+
+
+# mydata = c.execute("DELETE FROM Zoznam WHERE Name=?", (data3,)
 
 
 @app.route('/shopping', methods=['POST'])
@@ -106,7 +112,40 @@ def shopping():
     rows = cur.fetchall()
     print("DB:")
     print(rows)
-    return render_template('sh_list.html', rows = rows)
+
+    global total
+
+    total = 0
+    for row in rows:
+        total += int(row["num"]) * int(row["price"])
+
+
+    return render_template('sh_list.html', rows=rows, total=total)
+
+@app.route('/money', methods=['POST'])
+def money():
+
+    # 로그인한 아이디의 금액
+    global temp_id
+
+    conn = sqlite3.connect("user.db")
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+
+    test = "SELECT * FROM namgil where id =(?)"
+    cur.execute(test, [temp_id])
+    user_rows = cur.fetchall()
+
+    for user_row in user_rows:
+        temp_money = int(user_row["money"])
+
+    global total
+
+    if temp_money >= total:
+        print(temp_money-total)
+
+
+    return redirect(url_for('addrec'))
 
 @app.route('/addrec', methods = ['POST', 'GET'])
 def addrec():
